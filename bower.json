@@ -1,0 +1,22 @@
+{
+  "name": "Unicorn",
+  "description": "A judgmental pony that runs functions conditionally.",
+  "homepage": "https://github.com/krambuhl/unicorn.js",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/unicorn.js",
+  "authors": [
+    "Evan Krambuhl <thekrambuhl@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [],
+  "private": true,
+  "dependencies": {
+  }
+}
