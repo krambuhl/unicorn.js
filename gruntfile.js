@@ -48,16 +48,16 @@ module.exports = function(grunt) {
         tasks: ['testling']
       },
     },
-    testling: { 
+    testling: {
       build: {
-
+        
       }
     }
   });
 
   // register subtasks
   grunt.registerTask('scripts', ['watchify']);
-  grunt.registerTask('bundle', ['bower_concat', 'scripts', 'uglify'])
+  grunt.registerTask('bundle', ['bower_concat', 'scripts', 'uglify']);
 
   // register main tasks
   grunt.registerTask('test', ['bundle', 'testling', 'watch']);

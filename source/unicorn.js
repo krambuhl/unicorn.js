@@ -65,7 +65,7 @@ u = {
 
 	addCondition,
 	testCondition
-	
+
 	respond
 	once,
 	when,
