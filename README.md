@@ -7,7 +7,7 @@ Unicorn is a judgmental pony that runs functions conditionally.
 There are three main modules in unicorn: conditions, listeners, and responders.  
 ###Conditions
 
-All condition function create conditional state machines.  `addCondition` and `removeCondition`
+All condition function create conditional state machines.
 
 ```js
 
@@ -19,33 +19,53 @@ var isMediaLarge = Unicorn.Condition(function(width) {
     return width > 1280;
 });
 
-var isMediaMedium = Unicorn.not(isMediaSmall, isMediaLarge);
-
-
 var isPortrait = Unicorn.Condition(function(width, height) {
     return width < height
 });
 
-var isLandscape = Unicorn.not(isPortait);
+var isHighDpi = Unicorn.Condition(function() {
+    // high dpi test
+});
 
-var isPortraitSmall = Unicorn.and(isMediaSmall, isPortait);
-var isLandscapeSmall = Unicorn.and(isMediaSmall, isLandscape);
+var isGalleryExpanded = Unicorn.Condition(function() {
+    return $('.gallery').hasClass('is-expanded');
+});
 
+var isMediaMedium = Unicorn.and([
+    Unicorn.not(isMediaSmall),
+    Unicorn.not(isMediaLarge)
+]);
 
-Unicorn.not(isMediaSmall).when(function() {
+Unicorn.and(isMediaMedium, isPortait).when(function() {
    // setup multi column
    // destroy single column  
 });
 
-isMediaSmall.when(function() {
-    this ==> {
-        history: [true, false, false, true],
-        hasBeenTrue: true,
-        
-    }
+Unicorn.and(isMediaMedium, Unicorn.not(isPortait)).when(function() {
    // setup single column  
    // destroy multi column
 });
+
+isHighDpi.once(function() {
+    // update to highrez images
+});
+
+isGalleryExpanded.while(function() {
+    // center modal
+});
+
+
+// condition api
+isGalleryExpanded.value();
+isGalleryExpanded.firstValue();
+isGalleryExpanded.lastValue();
+isGalleryExpanded.respond();
+isGalleryExpanded.once();
+isGalleryExpanded.when();
+isGalleryExpanded.while();
+
+
+
 
 
 $(window).on('resize', function() {
