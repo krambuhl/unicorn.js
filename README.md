@@ -55,8 +55,8 @@ isGalleryExpanded.while(function() {
 
 // condition instance api
 Unicorn.Condition.value();
-Unicorn.Condition.firstValue();
-Unicorn.Condition.lastValue();
+Unicorn.Condition.prev();
+Unicorn.Condition.test();
 Unicorn.Condition.respond();
 Unicorn.Condition.once();
 Unicorn.Condition.when();
@@ -65,13 +65,17 @@ Unicorn.Condition.while();
 // composition api
 Unicorn.Compose(command, args);
 
+// Commands:
+// - not
+// - and
+// - or
+// - equal
+
 // composing sugar
 Unicorn.not()
 Unicorn.and()
 Unicorn.or()
-Unicorn.xor()
-Unicorn.xor()
-Unicorn.xnor()
+Unicorn.equal()
 
 
 
