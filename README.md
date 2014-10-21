@@ -54,13 +54,14 @@ isGalleryExpanded.while(function() {
 
 
 // condition instance api
-Unicorn.Condition.value();
-Unicorn.Condition.prev();
-Unicorn.Condition.test();
-Unicorn.Condition.respond();
-Unicorn.Condition.once();
-Unicorn.Condition.when();
-Unicorn.Condition.while();
+Unicorn.Condition.value;
+Unicorn.Condition.prev;
+Unicorn.Condition.nth(number);
+Unicorn.Condition.test(args);
+Unicorn.Condition.respond(func);
+Unicorn.Condition.once(func);
+Unicorn.Condition.when(func);
+Unicorn.Condition.while(func);
 
 // composition api
 Unicorn.Compose(command, args);
