@@ -31,19 +31,17 @@ var isGalleryExpanded = Unicorn.Condition(function() {
     return $('.gallery').hasClass('is-expanded');
 });
 
-var isMediaMedium = Unicorn.and([
-    Unicorn.not(isMediaSmall),
-    Unicorn.not(isMediaLarge)
-]);
+var isMediaMedium = 
+  Unicorn.and(Unicorn.not(isMediaSmall), Unicorn.not(isMediaLarge));
 
 Unicorn.and(isMediaMedium, isPortait).when(function() {
-   // setup multi column
-   // destroy single column  
+   // setup single column  
+   // destroy multi column
 });
 
 Unicorn.and(isMediaMedium, Unicorn.not(isPortait)).when(function() {
-   // setup single column  
-   // destroy multi column
+   // setup multi column
+   // destroy single column  
 });
 
 isHighDpi.once(function() {
@@ -55,15 +53,25 @@ isGalleryExpanded.while(function() {
 });
 
 
-// condition api
-isGalleryExpanded.value();
-isGalleryExpanded.firstValue();
-isGalleryExpanded.lastValue();
-isGalleryExpanded.respond();
-isGalleryExpanded.once();
-isGalleryExpanded.when();
-isGalleryExpanded.while();
+// condition instance api
+Unicorn.Condition.value();
+Unicorn.Condition.firstValue();
+Unicorn.Condition.lastValue();
+Unicorn.Condition.respond();
+Unicorn.Condition.once();
+Unicorn.Condition.when();
+Unicorn.Condition.while();
 
+// composition api
+Unicorn.Compose(command, args);
+
+// composing sugar
+Unicorn.not()
+Unicorn.and()
+Unicorn.or()
+Unicorn.xor()
+Unicorn.xor()
+Unicorn.xnor()
 
 
 
